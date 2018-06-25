@@ -21,6 +21,6 @@ public class App {
     @GetMapping("/")
     @ResponseBody
     public String index() {
-        return "Hello World";
+        return "Hello World!";
     }
 }
