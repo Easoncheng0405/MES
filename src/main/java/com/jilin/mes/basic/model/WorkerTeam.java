@@ -1,7 +1,7 @@
 package com.jilin.mes.basic.model;
 
 /*
- * 创建时间 @{DATE}
+ * 创建时间 2018/7/3
  * 作者： 程杰
  * 博客： www.chengjie-jlu.com
  */
@@ -11,6 +11,7 @@ import com.jilin.mes.basic.constant.TableName;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -33,4 +34,11 @@ public class WorkerTeam {
      *班组名称
      */
     private String name;
+
+
+    /**
+     * 所属车间
+     */
+    @ManyToOne
+    private WorkShop workShop;
 }

@@ -1,7 +1,7 @@
 package com.jilin.mes.basic.model;
 
 /*
- * 创建时间 @{DATE}
+ * 创建时间 2018/7/3
  * 作者： 程杰
  * 博客： www.chengjie-jlu.com
  */
@@ -9,9 +9,8 @@ package com.jilin.mes.basic.model;
 
 import com.jilin.mes.basic.constant.TableName;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -34,4 +33,34 @@ public class WorkType {
     private String name;
 
 
+    /**
+     * 此工种下的所有工人
+     */
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Worker> workers;
+
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Worker> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(List<Worker> workers) {
+        this.workers = workers;
+    }
 }
