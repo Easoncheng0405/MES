@@ -25,6 +25,7 @@ public class WorkType {
      * 工种编号
      */
     @Id
+    @Column(length = 25)
     private String number;
 
     /**

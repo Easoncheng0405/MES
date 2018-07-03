@@ -8,6 +8,7 @@ package com.jilin.mes.basic.model;
 
 import com.jilin.mes.basic.constant.TableName;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -25,6 +26,7 @@ public class WorkShop {
      * 车间编号
      */
     @Id
+    @Column(length = 25)
     private String number;
 
 

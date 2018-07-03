@@ -26,6 +26,7 @@ public class Worker {
      * 工号作为ID
      */
     @Id
+    @Column(length = 25)
     private String number;
 
     /**
