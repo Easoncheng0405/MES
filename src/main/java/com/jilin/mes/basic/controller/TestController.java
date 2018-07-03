@@ -7,7 +7,6 @@ package com.jilin.mes.basic.controller;
  */
 
 import com.jilin.mes.basic.model.WorkType;
-import com.jilin.mes.basic.model.Worker;
 import com.jilin.mes.basic.repository.WorkTypeRepository;
 import com.jilin.mes.basic.repository.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 测试类，测试部分功能
+ */
 @Controller
 @RequestMapping("/test")
 public class TestController {
@@ -37,7 +38,7 @@ public class TestController {
     @ResponseBody
     public List<WorkType> get() {
 
-        
+
         return workerRepository.findById("a1").orElse(null).getTypes();
 
     }

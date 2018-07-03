@@ -32,7 +32,7 @@ public class Worker {
      * 所属工种编号
      */
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "workers")
-    @JsonIgnore
+    @JsonIgnore //这里添加JsonIgnore是因为在序列化得时候关系双方会递归无限调用toString导致栈溢出
     private List<WorkType> types;
 
 

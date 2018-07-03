@@ -1,0 +1,954 @@
+<div th:fragment="sidebarId" class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index3.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+
+    </nav>
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="index3.html" class="brand-link">
+            <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">AdminLTE 3</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Alexander Pierce</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>订单管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>加工订单概览</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>加工订单统计</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>加工订单视图</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>生产监控</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>进度监控</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>设备数据管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备概览</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备和工位的设置</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备事件视图</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备保养日历</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备状态报告</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备状态视图</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备停机列表</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>物料批量控制追踪 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>物料基础数据管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>在制品概览</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>在制品监视</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>提醒报告</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>反馈通知报告</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>系统跟踪与追溯 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>批量和批次的基础数据</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>通过扫描的数据采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>图形化批量和批次的跟踪</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>表格形式的批次跟踪</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>电子生产报告</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>批量和批次的时段统计</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>车间数据采集 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>基础数据维护</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>过程数据监视</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>图形化过程分析</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>过程记录</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>反馈通知</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>工具管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>基础数据管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>实时概况</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>维修保养日历</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>维修保养任务</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>CNC程序与设备设置管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>实时概况</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>程序下载</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>NC程序传输</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>能源管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>能耗数据采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>能源监测</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>员工考勤与工时管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员基础信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>考勤信息采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>出勤概览</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>纪念日列表</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>人事时间管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>个人工作时间</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>个人时间统计</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>工位管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员需求</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员配置计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>工作时间模式</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--  <li class="nav-item">
+                          <a href="#" class="nav-link">
+                              <i class="nav-icon fa fa-hand-paper-o "></i>
+                              <p>绩效工资管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                          </a>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="#" class="nav-link">
+                                      <i class="nav-icon fa fa-circle-o "></i>
+                                      <p>工资类型管理</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="#" class="nav-link">
+                                      <i class="nav-icon fa fa-circle-o "></i>
+                                      <p>绩效工资预览</p>
+                                  </a>
+                              </li>
+                          </ul>
+                      </li>-->
+                    <!-- <li class="nav-item">
+                         <a href="#" class="nav-link">
+                             <i class="nav-icon fa fa-hand-paper-o "></i>
+                             <p>门禁管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                         </a>
+                         <ul class="nav nav-treeview">
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link">
+                                     <i class="nav-icon fa fa-circle-o "></i>
+                                     <p>通道管理</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link">
+                                     <i class="nav-icon fa fa-circle-o "></i>
+                                     <p>开启时间</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link">
+                                     <i class="nav-icon fa fa-circle-o "></i>
+                                     <p>访问权限</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link">
+                                     <i class="nav-icon fa fa-circle-o "></i>
+                                     <p>报警记录</p>
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a href="#" class="nav-link">
+                                     <i class="nav-icon fa fa-circle-o "></i>
+                                     <p>警报系统</p>
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>生产检验管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>基础数据维护</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验数据采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>发货检验</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>表格创建管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>数据长期存档</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>进货检验管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>基础数据维护</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验数据采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>发货检验</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>表格创建管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>数据长期存档</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>投诉管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>投诉数据维护</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>自动创建投诉</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>投诉采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>表单创建管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>措施跟踪</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>检验设备管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>基础数据维护</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>校准计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>检验数据采集</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>控制图表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>校准状态</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>措施跟踪</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>车间计划调度 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>计划面板</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>计划视图</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>计划排产</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>待排生产任务组</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>生产能力峰值</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备负荷视图</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>生产能力负荷</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>工艺管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>工艺文件管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>工时计划</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>生产准备管理</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>工艺改进</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>综合信息管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员综合信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备综合信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>订单实时状况</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>质检实时状况</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>基础数据 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员基础信息编辑</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>设备基础信息编辑</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>订单基础信息编辑</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>物料基础信息编辑</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>供应商基础信息编辑</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>系统管理 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>系统管理员编辑</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>系统日志查询</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>系统数据库备份</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>模板 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/template/template1" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板1</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template2" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板2</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template3" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板3</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template4" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板4</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template5" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板5</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template6" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板6</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template7" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板7</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template8" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板8</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template9" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板9</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template7" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板10</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/template/template7" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>模板11</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-hand-paper-o "></i>
+                            <p>人员信息 <i class="right fa fa-angle-leftMoney"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/CTMES_STAFF_DETAIL/CTMES_STAFF_DETAIL" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>人员详细信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CTMES_STAFF_JOB/CTMES_STAFF_JOB" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>工种信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CTMES_STAFF_POSITION/CTMES_STAFF_POSITION" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>职称信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CTMES_STAFF_DEPARTMENT/CTMES_STAFF_DEPARTMENT" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>部门信息</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/CTMES_STAFF_CLASS/CTMES_STAFF_CLASS" class="nav-link">
+                                    <i class="nav-icon fa fa-circle-o "></i>
+                                    <p>班组信息</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>iv>
+    </div>
+</div>
