@@ -34,4 +34,6 @@ public class Department {
      * 科室名称
      */
     private String name;
+
+
 }

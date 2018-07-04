@@ -23,6 +23,10 @@
         .selected {
             background: #1fc8e3;
         }
+
+        label {
+            margin-top: 8px;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +51,59 @@
             </div><!-- /.container-fluid -->
         </section>
 
+        <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="formAdd" action="/WorkShop/add" method="post" class="form-group"
+                          onsubmit="return addReport();">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">添加车间记录</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <label>车间编号</label>
+                            <input name="number" class="form-control" required="required">
+                            <label>车间名称</label>
+                            <input name="name" class="form-control" required="required">
+                            <label>备注</label>
+                            <input name="note" class="form-control" required="required">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
+        <div class="modal fade" id="modalModify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="formModify" action="/WorkShop/modify" method="post" class="form-group"
+                          onsubmit="return modifyReport();">
+                        <div class="modal-header">
+                            <h4 class="modal-title">修改车间记录</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <label>车间编号</label>
+                            <input id="number" name="number" class="form-control" readonly="readonly">
+                            <label>车间名称</label>
+                            <input id="name" name="name" class="form-control" required="required">
+                            <label>备注</label>
+                            <input id="note" name="note" class="form-control" required="required">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -66,121 +123,20 @@
                             <table id="example" class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Rendering engine</th>
-                                    <th>Browser</th>
-                                    <th>Platform(s)</th>
-                                    <th>Engine version</th>
-                                    <th>CSS grade</th>
+                                    <th>车间编号</th>
+                                    <th>车间名称</th>
+                                    <th>备注</th>
+                                    <th>创建时间</th>
+                                    <th>创建人</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td> 4</td>
-                                    <td>X</td>
-                                </tr>
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>5</td>
-                                    <td>C</td>
+                                <tr th:each="w : ${list}">
+                                    <td th:text="${w.number}"></td>
+                                    <td th:text="${w.name}"></td>
+                                    <td th:text="${w.note}"></td>
+                                    <td th:text="${#dates.format(w.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td th:text="${w.user}"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -218,7 +174,7 @@
 <script src="/js/adminlte.min.js"></script>
 <script src="/js/dataTable.min.js"></script>
 <script src="/js/dataTables.bootstrap4.min.js"></script>
-
+<script src="/js/jquery.form.js"></script>
 </body>
 <script>
     $(document).ready(function () {
@@ -269,13 +225,62 @@
 
     function del() {
         try {
-
             var tid = $('.selected')[0].cells[0].innerHTML;
-            if (confirm("确定要删除 " + tid + " 这条记录吗"))
-                alert("已删除!");
-
+            if (confirm("确定要删除 " + tid + " 这条记录吗")) {
+                $.ajax({
+                    //几个参数需要注意一下
+                    type: "POST",//方法类型
+                    dataType: "text",//预期服务器返回的数据类型
+                    url: "/WorkShop/del",//url
+                    data: "number=" + tid,
+                    success: function (data) {
+                        alert(data);
+                        if (data === "成功删除记录！")
+                            location.reload();
+                    },
+                    error: function () {
+                        alert("删除记录失败！服务器发生错误！");
+                    }
+                });
+            }
         } catch (e) {
             alert("未选中行");
+        }
+    }
+
+
+    function addReport() {
+        $("#formAdd").ajaxSubmit(function (message) {
+            alert(message);
+            if (message === "成功添加记录！")
+                location.reload();
+        });
+        return false;
+    }
+
+    function modifyReport() {
+        $("#formModify").ajaxSubmit(function (message) {
+            alert(message);
+            if (message === "成功修改记录！")
+                location.reload();
+        });
+        return false;
+    }
+
+    function initForm() {
+        try {
+            var cells = $('.selected')[0].cells;
+            var number = cells[0].innerHTML;
+            var name = cells[1].innerHTML;
+            var note = cells[2].innerHTML;
+
+            document.getElementById("number").value = number;
+            document.getElementById("name").value = name;
+            document.getElementById("note").value = note;
+
+            $('#modalModify').modal('toggle');
+        } catch (e) {
+            alert("未选中行!");
         }
     }
 </script>

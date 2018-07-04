@@ -20,6 +20,9 @@ import javax.persistence.*;
 public class WorkerTeam {
 
 
+    public static void main(){}
+
+
     /**
      * 班组编号
      */
