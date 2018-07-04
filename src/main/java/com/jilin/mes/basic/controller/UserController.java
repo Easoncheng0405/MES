@@ -11,6 +11,7 @@ import com.jilin.mes.basic.constant.Constant;
 import com.jilin.mes.basic.constant.Router;
 import com.jilin.mes.basic.model.User;
 import com.jilin.mes.basic.repository.UserRepository;
+import com.jilin.mes.basic.util.AccessUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,9 +35,12 @@ public class UserController {
     }
 
     @GetMapping(Router.USER)
-    public String get(Model model) {
+    public String get(Model model,HttpSession session) {
+
+        if (!AccessUtil.hasAccess(Router.USER, session))
+            return "denied";
+
         model.addAttribute("list", userRepository.findAll());
-        model.addAttribute("superAdmin", Constant.USER_TYPE_SUPER_ADMIN);
         model.addAttribute("admin", Constant.USER_TYPE_ADMIN);
         model.addAttribute("worker", Constant.USER_TYPE_WORKER);
         Set<String> set = AccessMap.getCRUDMap().keySet();
@@ -49,8 +53,8 @@ public class UserController {
     public String add(User user, HttpSession session) {
 
 
-        if (!user.getType().equals(Constant.USER_TYPE_SUPER_ADMIN))
-            return "只有超级管理员可以添加用户！";
+        if (!AccessUtil.hasAccess(Router.USER_ADD, session))
+            return "没有访问权限！";
 
         if (userRepository.findByName(user.getName()) != null)
             return "已存在名为 " + user.getName() + " 的用户!";
@@ -64,7 +68,10 @@ public class UserController {
 
     @PostMapping(Router.USER_DEL)
     @ResponseBody
-    public String del(String name) {
+    public String del(String name,HttpSession session) {
+
+        if (!AccessUtil.hasAccess(Router.USER_DEL, session))
+            return "没有访问权限！";
 
         User user = userRepository.findByName(name);
 

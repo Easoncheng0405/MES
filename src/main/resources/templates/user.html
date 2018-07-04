@@ -100,7 +100,6 @@
                             <input name="name" class="form-control" required="required">
                             <label>用户类型</label>
                             <select name="type" class="form-control">
-                                <option th:text="${superAdmin}"></option>
                                 <option th:text="${admin}"></option>
                                 <option th:text="${worker}"></option>
                             </select>
@@ -313,6 +312,10 @@
                     url: "/user/del",//url
                     data: "name=" + tid,
                     success: function (data) {
+                        if (data === "没有访问权限！") {
+                            window.location = "/denied";
+                            return;
+                        }
                         alert(data);
                         if (data === "成功删除用户！")
                             location.reload();
@@ -330,6 +333,10 @@
 
     function addReport() {
         $("#formAdd").ajaxSubmit(function (message) {
+            if (message === "没有访问权限！") {
+                window.location = "/denied";
+                return;
+            }
             alert(message);
             if (message === "成功添加用户！")
                 location.reload();
@@ -339,6 +346,10 @@
 
     function modifyReport() {
         $("#formModify").ajaxSubmit(function (message) {
+            if (message === "没有访问权限！") {
+                window.location = "/denied";
+                return;
+            }
             alert(message);
         });
         return false;

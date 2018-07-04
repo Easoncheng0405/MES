@@ -13,12 +13,14 @@ import com.jilin.mes.basic.model.Access;
 import com.jilin.mes.basic.model.User;
 import com.jilin.mes.basic.repository.AccessRepository;
 import com.jilin.mes.basic.repository.UserRepository;
+import com.jilin.mes.basic.util.AccessUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -40,11 +42,14 @@ public class AccessController {
 
     @PostMapping(Router.ACCESS_MODIFY)
     @ResponseBody
-    public String modify(@RequestParam String name, @RequestParam String access,
+    public String modify(@RequestParam String name, @RequestParam String access,HttpSession session,
                          @RequestParam(required = false) String select,
                          @RequestParam(required = false) String add,
                          @RequestParam(required = false) String modify,
                          @RequestParam(required = false) String del) {
+
+        if (!AccessUtil.hasAccess(Router.ACCESS_MODIFY, session))
+            return "没有访问权限！";
 
         User user = userRepository.findByName(name);
 
