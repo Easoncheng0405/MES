@@ -1,6 +1,8 @@
 package com.jilin.mes.basic.constant;
 
-import com.jilin.mes.basic.controller.IndexController;
+import com.jilin.mes.basic.controller.AccessController;
+import com.jilin.mes.basic.controller.LoginController;
+import com.jilin.mes.basic.controller.UserController;
 import com.jilin.mes.basic.controller.WorkShopController;
 
 /*
@@ -19,29 +21,65 @@ public class Router {
      * 车间页面
      * @see WorkShopController#get
      */
-    public static final String WORKSHOP="/WorkShop";
+    public static final String WORKSHOP="/workShop";
 
 
     /**
      * 添加车间记录
      * @see WorkShopController#add
      */
-    public static final String WORKSHOP_ADD="/WorkShop/add";
+    public static final String WORKSHOP_ADD="/workShop/add";
 
     /**
      * 删除车间记录
      * @see WorkShopController#del
      */
-    public static final String WORKSHOP_DEL="/WorkShop/del";
+    public static final String WORKSHOP_DEL="/workShop/del";
 
     /**
      * 修改车间记录
      * @see WorkShopController#modify
      */
-    public static final String WORKSHOP_MODIFY="/WorkShop/modify";
+    public static final String WORKSHOP_MODIFY="/workShop/modify";
+
 
     /**
-     * @see IndexController#get()
+     * 登陆页面
+     * @see LoginController#get
      */
-    public static final String WORKER="Worker";
+    public static final String SYSTEM_LOGIN="/login";
+
+
+    /**
+     * 用户信息页面
+     * @see UserController#get
+     */
+    public static final String USER ="/user";
+
+
+    /**
+     * 用户信息页面
+     * @see UserController#add
+     */
+    public static final String USER_ADD="/user/add";
+
+    /**
+     * 用户信息页面
+     * @see UserController#del
+     */
+    public static final String USER_DEL="/user/del";
+
+
+    /**
+     * 用户信息页面
+     * @see UserController#modify
+     */
+    public static final String USER_MODIFY="/user/modify";
+
+
+    /**
+     * 权限修改路由
+     * @see AccessController#modify
+     */
+    public static final String ACCESS_MODIFY="/access";
 }

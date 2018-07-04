@@ -13,10 +13,6 @@ import com.jilin.mes.basic.model.*;
  */
 public class TableName {
 
-
-    private TableName(){
-    }
-
     /**
      * 人员工种单位信息表
      * @see Worker

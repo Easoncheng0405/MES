@@ -33,14 +33,6 @@ public class WorkType {
      */
     private String name;
 
-
-    /**
-     * 此工种下的所有工人
-     */
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Worker> workers;
-
-
     public String getNumber() {
         return number;
     }
@@ -57,11 +49,4 @@ public class WorkType {
         this.name = name;
     }
 
-    public List<Worker> getWorkers() {
-        return workers;
-    }
-
-    public void setWorkers(List<Worker> workers) {
-        this.workers = workers;
-    }
 }

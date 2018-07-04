@@ -10,6 +10,7 @@ package com.jilin.mes.basic.controller;
 import com.jilin.mes.basic.constant.Router;
 import com.jilin.mes.basic.model.WorkShop;
 import com.jilin.mes.basic.repository.WorkShopRepository;
+import com.jilin.mes.basic.util.AccessUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 
@@ -39,9 +41,12 @@ public class WorkShopController {
      * @return 页面
      */
     @GetMapping(Router.WORKSHOP)
-    public String get(Model model) {
+    public String get(Model model, HttpSession session) {
+
+        if (!AccessUtil.hasAccess(Router.WORKSHOP, session))
+            return "denied";
         model.addAttribute("list", workShopRepository.findAll());
-        return "WorkShop";
+        return "workShop";
     }
 
 
@@ -52,8 +57,10 @@ public class WorkShopController {
      */
     @PostMapping(Router.WORKSHOP_ADD)
     @ResponseBody
-    public String add(WorkShop shop) {
+    public String add(WorkShop shop,HttpSession session) {
 
+        if (!AccessUtil.hasAccess(Router.WORKSHOP_ADD, session))
+            return "没有访问权限！";
         if (workShopRepository.findByNumber(shop.getNumber()) != null)
             return "已经存在编号为 " + shop.getNumber() + " 的车间";
 
@@ -66,9 +73,10 @@ public class WorkShopController {
 
     @PostMapping(Router.WORKSHOP_DEL)
     @ResponseBody
-    public String del(String number) {
+    public String del(String number,HttpSession session) {
 
-         //权限校验
+        if (!AccessUtil.hasAccess(Router.WORKSHOP_DEL, session))
+            return "没有访问权限！";
 
         workShopRepository.delete(workShopRepository.findByNumber(number));
         return "成功删除记录！";
@@ -76,10 +84,13 @@ public class WorkShopController {
 
     @PostMapping(Router.WORKSHOP_MODIFY)
     @ResponseBody
-    public String modify(WorkShop shop){
-        //权限校验
+    public String modify(WorkShop shop,HttpSession session) {
 
-        WorkShop workShop=workShopRepository.findByNumber(shop.getNumber());
+
+        if (!AccessUtil.hasAccess(Router.WORKSHOP_MODIFY, session))
+            return "没有访问权限！";
+
+        WorkShop workShop = workShopRepository.findByNumber(shop.getNumber());
         workShop.setName(shop.getName());
         workShop.setNote(shop.getNote());
         workShopRepository.save(workShop);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>车间管理</title>
+    <title>用户管理</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -31,7 +31,41 @@
 </head>
 <body>
 <div class="wrapper">
-    <div th:replace="navbar::navbarId"></div>
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="navbar-nav ml-auto">
+            <div class="btn-group">
+                <button class="btn btn-success" data-toggle="modal" data-target="#modalAdd">新增</button>
+                <button class="btn btn-primary" onclick="initForm()">权限</button>
+                <button class="btn btn-danger" onclick="del()">删除</button>
+            </div>
+        </div>
+    </nav>
+
     <div th:replace="sidebar::sidebarId"></div>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -55,19 +89,23 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="formAdd" action="/workShop/add" method="post" class="form-group"
+                    <form id="formAdd" action="/user/add" method="post" class="form-group"
                           onsubmit="return addReport();">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">添加车间记录</h4>
+                            <h4 class="modal-title" id="myModalLabel">添加新用户</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <label>车间编号</label>
-                            <input name="number" class="form-control" required="required">
-                            <label>车间名称</label>
+                            <label>用户名称</label>
                             <input name="name" class="form-control" required="required">
-                            <label>备注</label>
-                            <input name="note" class="form-control" required="required">
+                            <label>用户类型</label>
+                            <select name="type" class="form-control">
+                                <option th:text="${superAdmin}"></option>
+                                <option th:text="${admin}"></option>
+                                <option th:text="${worker}"></option>
+                            </select>
+                            <label>用户密码</label>
+                            <input name="password" type="password" class="form-control" required="required">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -82,19 +120,34 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="formModify" action="/workShop/modify" method="post" class="form-group"
+                    <form id="formModify" action="/access" method="post" class="form-group"
                           onsubmit="return modifyReport();">
                         <div class="modal-header">
-                            <h4 class="modal-title">修改车间记录</h4>
+                            <h4 class="modal-title">修改用户权限</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <label>车间编号</label>
-                            <input id="number" name="number" class="form-control" readonly="readonly">
-                            <label>车间名称</label>
-                            <input id="name" name="name" class="form-control" required="required">
-                            <label>备注</label>
-                            <input id="note" name="note" class="form-control" required="required">
+                            <label>用户名称</label>
+                            <input id="name" name="name" class="form-control" readonly="readonly">
+                            <label>选择项目</label>
+                            <select name="access" class="form-control">
+                                <option th:each="name : ${set}" th:text="${name}"></option>
+                            </select>
+                            <div>
+                                <label class="checkbox-inline form-control">
+                                <input type="checkbox" id="b1" name="select"> 查看
+                            </label>
+                                <label class="checkbox-inline form-control">
+                                    <input type="checkbox" name="modify" id="b2"> 修改
+                                </label>
+                                <label class="checkbox-inline form-control">
+                                    <input type="checkbox" name="add" id="b3"> 添加
+                                </label>
+                                <label class="checkbox-inline form-control">
+                                    <input type="checkbox" name="del" id="b4"> 删除
+                                </label>
+
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -110,7 +163,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">车间记录</h3>
+                            <h3 class="card-title">用户记录</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-widget="collapse">
                                     <i class="fa fa-minus"></i>
@@ -123,20 +176,18 @@
                             <table id="example" class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>车间编号</th>
-                                    <th>车间名称</th>
-                                    <th>备注</th>
+                                    <th>用户名称</th>
+                                    <th>用户类型</th>
                                     <th>修改时间</th>
                                     <th>创建人</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="w : ${list}">
-                                    <td th:text="${w.number}"></td>
-                                    <td th:text="${w.name}"></td>
-                                    <td th:text="${w.note}"></td>
-                                    <td th:text="${#dates.format(w.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
-                                    <td th:text="${w.user}"></td>
+                                <tr th:each="u : ${list}">
+                                    <td th:text="${u.name}"></td>
+                                    <td th:text="${u.type}"></td>
+                                    <td th:text="${#dates.format(u.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                                    <td th:text="${u.user}"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -221,6 +272,34 @@
                 $(this).addClass('selected');
             }
         });
+
+
+        var box1 = document.getElementById('b1');
+        var box2 = document.getElementById('b2');
+        var box3 = document.getElementById('b3');
+        var box4 = document.getElementById('b4');
+
+        box1.onclick = function () {
+            if (!this.checked) {
+                box2.checked = false;
+                box3.checked = false;
+                box4.checked = false;
+            }
+        };
+
+        box2.onclick = function () {
+            if (this.checked)
+                box1.checked = true;
+        };
+
+        box3.onclick = function () {
+            if (this.checked)
+                box1.checked = true;
+        };
+        box4.onclick = function () {
+            if (this.checked)
+                box1.checked = true;
+        };
     });
 
     function del() {
@@ -231,15 +310,11 @@
                     //几个参数需要注意一下
                     type: "POST",//方法类型
                     dataType: "text",//预期服务器返回的数据类型
-                    url: "/workShop/del",//url
-                    data: "number=" + tid,
+                    url: "/user/del",//url
+                    data: "name=" + tid,
                     success: function (data) {
-                        if (data === "没有访问权限！") {
-                            window.location = "/denied";
-                            return;
-                        }
                         alert(data);
-                        if (data === "成功删除记录！")
+                        if (data === "成功删除用户！")
                             location.reload();
                     },
                     error: function () {
@@ -255,27 +330,16 @@
 
     function addReport() {
         $("#formAdd").ajaxSubmit(function (message) {
-            if (message === "没有访问权限！") {
-                window.location = "/denied";
-                return;
-            }
             alert(message);
-            if (message === "成功添加记录！")
+            if (message === "成功添加用户！")
                 location.reload();
-
         });
         return false;
     }
 
     function modifyReport() {
         $("#formModify").ajaxSubmit(function (message) {
-            if (message === "没有访问权限！") {
-                window.location = "/denied";
-                return;
-            }
             alert(message);
-            if (message === "成功修改记录！")
-                location.reload();
         });
         return false;
     }
@@ -283,19 +347,14 @@
     function initForm() {
         try {
             var cells = $('.selected')[0].cells;
-            var number = cells[0].innerHTML;
-            var name = cells[1].innerHTML;
-            var note = cells[2].innerHTML;
-
-            document.getElementById("number").value = number;
-            document.getElementById("name").value = name;
-            document.getElementById("note").value = note;
-
+            document.getElementById("name").value = cells[0].innerHTML;
             $('#modalModify').modal('toggle');
         } catch (e) {
-            alert("未选中行!");
+            alert("未选中行! ");
         }
     }
+
+
 </script>
 
 <script>

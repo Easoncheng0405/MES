@@ -6,8 +6,6 @@ package com.jilin.mes.basic.model;
  * 博客： www.chengjie-jlu.com
  */
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jilin.mes.basic.constant.TableName;
 
 import javax.persistence.*;
@@ -32,8 +30,7 @@ public class Worker {
     /**
      * 所属工种编号
      */
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "workers")
-    @JsonIgnore //这里添加JsonIgnore是因为在序列化得时候关系双方会递归无限调用toString导致栈溢出
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<WorkType> types;
 
 

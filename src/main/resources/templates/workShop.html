@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>车间管理</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -55,7 +55,7 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="formAdd" action="/WorkShop/add" method="post" class="form-group"
+                    <form id="formAdd" action="/workShop/add" method="post" class="form-group"
                           onsubmit="return addReport();">
                         <div class="modal-header">
                             <h4 class="modal-title" id="myModalLabel">添加车间记录</h4>
@@ -82,7 +82,7 @@
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="formModify" action="/WorkShop/modify" method="post" class="form-group"
+                    <form id="formModify" action="/workShop/modify" method="post" class="form-group"
                           onsubmit="return modifyReport();">
                         <div class="modal-header">
                             <h4 class="modal-title">修改车间记录</h4>
@@ -110,7 +110,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">表格示例</h3>
+                            <h3 class="card-title">车间记录</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-widget="collapse">
                                     <i class="fa fa-minus"></i>
@@ -126,7 +126,7 @@
                                     <th>车间编号</th>
                                     <th>车间名称</th>
                                     <th>备注</th>
-                                    <th>创建时间</th>
+                                    <th>修改时间</th>
                                     <th>创建人</th>
                                 </tr>
                                 </thead>
@@ -231,9 +231,13 @@
                     //几个参数需要注意一下
                     type: "POST",//方法类型
                     dataType: "text",//预期服务器返回的数据类型
-                    url: "/WorkShop/del",//url
+                    url: "/workShop/del",//url
                     data: "number=" + tid,
                     success: function (data) {
+                        if (data === "没有访问权限！") {
+                            window.location = "/denied";
+                            return;
+                        }
                         alert(data);
                         if (data === "成功删除记录！")
                             location.reload();
@@ -251,15 +255,24 @@
 
     function addReport() {
         $("#formAdd").ajaxSubmit(function (message) {
+            if (message === "没有访问权限！") {
+                window.location = "/denied";
+                return;
+            }
             alert(message);
             if (message === "成功添加记录！")
                 location.reload();
+
         });
         return false;
     }
 
     function modifyReport() {
         $("#formModify").ajaxSubmit(function (message) {
+            if (message === "没有访问权限！") {
+                window.location = "/denied";
+                return;
+            }
             alert(message);
             if (message === "成功修改记录！")
                 location.reload();
