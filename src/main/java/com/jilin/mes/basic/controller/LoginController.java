@@ -29,14 +29,19 @@ public class LoginController {
 
     private final UserRepository userRepository;
 
+
+    private String next;
+
     @Autowired
     public LoginController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @GetMapping
-    public String get() {
+    public String get(@RequestParam(required = false) String next) {
 
+
+        this.next = next;
         User user = userRepository.findByName("admin");
         if (user == null) {
             user = new User();
@@ -53,13 +58,16 @@ public class LoginController {
     public String post(@RequestParam String name, @RequestParam String password, HttpSession session, Model model) {
         User user = userRepository.findByNameAndPassword(name, password);
 
+
         if (user == null) {
             model.addAttribute("error", "用户名或密码错误!");
             return "login";
         }
 
         session.setAttribute(Constant.CURRENT_USER, user);
-
-        return "redirect:/workShop";
+        if (next == null || next.equals(""))
+            return "redirect:" + Router.WORKSHOP;
+        else
+            return "redirect:" + next;
     }
 }
